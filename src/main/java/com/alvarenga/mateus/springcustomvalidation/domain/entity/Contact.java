@@ -1,9 +1,9 @@
 package com.alvarenga.mateus.springcustomvalidation.domain.entity;
 
-import com.alvarenga.mateus.springcustomvalidation.infra.validation.CharValid;
+import com.alvarenga.mateus.springcustomvalidation.infra.validation.Match;
+import com.alvarenga.mateus.springcustomvalidation.infra.validation.ShouldContain;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
-import org.springframework.lang.NonNullApi;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,9 +31,10 @@ public class Contact {
     private String phone;
 
     @NotBlank(message = "Message must not be blank")
+    @ShouldContain(check = ":", message = "Message must contain ':'")
     private String message;
 
     @NotBlank(message = "Status must not be blank")
-    @CharValid(chars = {"A", "I", "P"}, message = "Status must be A, I or P")
+    @Match(check = {"A", "I", "Peee"}, message = "Status must be A, I or P")
     private String status;
 }
