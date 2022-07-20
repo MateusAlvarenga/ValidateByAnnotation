@@ -31,14 +31,14 @@ public class ContactValidationTest {
         contact.setEmail("asdf@gmail.com");
         contact.setName("ABCDEFG");
         contact.setPhone("asdf");
-        contact.setStatus("Z");
+        contact.setStatus("A");
         contact.setMessage("asdf");
 
         // When
         var errors = validator.validate(contact);
 
         // Then
-        assertEquals(errors.size(), 0);
+        assertEquals(0, errors.size());
     }
 
     @Test
@@ -49,13 +49,13 @@ public class ContactValidationTest {
         contact.setEmail("");
         contact.setName("");
         contact.setPhone("");
-        contact.setStatus("");
+        contact.setStatus("A");
         contact.setMessage("");
 
         // When
         var errors = validator.validate(contact);
 
         // Then
-        assertEquals(errors.size(), 7);
+        assertEquals(6, errors.size());
     }
 }
