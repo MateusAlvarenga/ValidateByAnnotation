@@ -34,6 +34,6 @@ public class Contact {
     private String message;
 
     @NotBlank(message = "Status must not be blank")
-    @CharValid(chars = {"A", "I", "P"})
+    @CharValid(chars = {"A", "I", "P"}, message = "Status must be A, I or P")
     private String status;
 }
