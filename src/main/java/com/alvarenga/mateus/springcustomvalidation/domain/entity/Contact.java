@@ -35,6 +35,6 @@ public class Contact {
     private String message;
 
     @NotBlank(message = "Status must not be blank")
-    @Match(check = {"A", "I", "Peee"}, message = "Status must be A, I or P")
+    @Match(check = {"A", "I", "P"}, message = "Status must be A, I or P")
     private String status;
 }
